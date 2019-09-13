@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './directory.style.scss'
-import MenuItem from '../../pages/menu-item/menu-item'
+import MenuItem from '../menu-item/menu-item'
 export default class Directory extends Component {
 
     constructor(){
@@ -36,8 +36,12 @@ export default class Directory extends Component {
                 linkUrl:'hats'
             }]
 
-        }
 
+
+        }
+    
+
+        
     }
 
     render() {
