@@ -1,24 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
+import HomePage from './pages/homepage/homepage.component'
+import {Switch, Route, Link} from 'react-router-dom'
 import './App.css';
 
+
+const HatsPage = (props) => (
+
+  <div>
+<Link to='/topic'>Topics</Link>
+<button onClick={()=>props.history.push('/topic')}>Topics</button>
+    <h1>Hats Page</h1>
+  </div>
+);
+const Topic = () => (
+
+  <div>
+    <h1>Topic Page</h1>
+  </div>
+);
+
+const TopicDetails = (props) => (
+
+  <div>
+    <h1>Topic Deatiasl Page: {props.match.params.id}</h1>
+  </div>
+);
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Switch>
+        <Route exact path ='/' component ={HomePage} />
+        <Route exact path ='/hats' component ={HatsPage} />
+        <Route exact path ='/topic' component ={Topic} />
+        <Route exact path ='/topic/:id' component ={TopicDetails} />
+      </Switch>
     </div>
   );
 }
